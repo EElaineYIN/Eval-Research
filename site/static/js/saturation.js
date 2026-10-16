@@ -135,7 +135,7 @@ dash.calc('sat_index', {
     if (r.family_label !== r.name) out.push(['Entry shown: ' + r.name + (r._variants.length ? ' (+' + r._variants.length + ' related)' : ''), 's']);
     out.push([CL[r._c.cls].label + (r._c.method === 'gap' ? ' · est. (no item count)' : '') + (r._sat != null ? ' · saturation ' + Math.round(r._sat * 100) + '%' : ''), 's'],
       ['Top 1 ' + f1(r.top1) + ' · Top 5 ' + f1(r.top5) + ' · headroom ' + f1(r.headroom), '']);
-    if (r._s) out.push(['S = ' + f2(r._s[AL[P.alpha]]) + ' at α = ' + P.alpha + ' (range ' + f2(r._s.s_a10) + '–' + f2(r._s.s_a05) + ')', ''], ['n = ' + fc(r.n) + ' · ' + r.n_conf + ' · ' + r._c.rob, 's']);
+    if (r._s) out.push(['S = ' + f2(r._s[AL[P.alpha]]) + ' at α = ' + P.alpha + ' (range ' + f2(r._s.s_a10) + ' to ' + f2(r._s.s_a05) + ')', ''], ['n = ' + fc(r.n) + ' · ' + r.n_conf + ' · ' + r._c.rob, 's']);
     out.push(['Leader: ' + r.top1_model, 's']);
     return out;
   };
@@ -168,7 +168,7 @@ dash.calc('sat_index', {
     const x = d3.scaleLinear([0, Math.ceil((d3.max(pts, (r) => r.headroom) || 80) / 10) * 10], [m.l, W - m.r]);
     const y = d3.scaleLinear([0, Math.ceil((d3.max(pts, (r) => r.spread_1_5) || 50) / 10) * 10], [H - m.b, m.t]);
     const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Scatter of headroom against top-5 gap for all classifiable benchmarks; full values in the table below');
-    axes(svg, x, y, W, H, m, 'Headroom = 100 − top score (pts)', 'Top 1 − top 5 (pts)');
+    axes(svg, x, y, W, H, m, 'Headroom = 100 − top score (pts)', 'Gap between 1st and 5th (pts)');
     svg.append('line').attr('x1', x(P.h)).attr('x2', x(P.h)).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--ref)');
     const g = svg.append('g');
     const diamond = d3.symbol(d3.symbolDiamond, 110);
@@ -204,7 +204,7 @@ dash.calc('sat_index', {
 
   function table(rows) {
     const tb = $('tbody'); tb.replaceChildren();
-    const num = (v) => (v == null ? '—' : f1(v));
+    const num = (v) => (v == null ? 'n/a' : f1(v));
     const val = (r, k) => (k === '_role' ? (r._primary ? 0 : 1) : k === '_sat' ? r._sat : k === '_cls' ? CL[r._c.cls].order : k === '_rob' ? (r._c.rob || '') : k === '_s' ? (r._s ? r._s[AL[P.alpha]] : null) : r[k]);
     let list = rows.filter((r) => !query || r.name.toLowerCase().includes(query) || r.key.toLowerCase().includes(query) || r.family_label.toLowerCase().includes(query));
     list = list.slice().sort((a, b) => {
@@ -221,12 +221,12 @@ dash.calc('sat_index', {
       const cl = add('', 'cls'); const dot = document.createElement('i'); dot.style.background = CL[r._c.cls].color;
       if (!MAIN.includes(r._c.cls)) dot.style.border = '1.5px solid var(--chart-muted)';
       cl.append(dot, document.createTextNode(CL[r._c.cls].label + (r._c.method === 'gap' ? ' (est.)' : '')));
-      add(r._sat == null ? '—' : Math.round(r._sat * 100) + '%', 'num');
-      add(r._c.rob || '—');
+      add(r._sat == null ? 'n/a' : Math.round(r._sat * 100) + '%', 'num');
+      add(r._c.rob || 'n/a');
       add(String(r.n_families), 'num'); add(num(r.top1), 'num'); add(num(r.top5), 'num');
-      add(r.percent_like ? num(r.headroom) : '—', 'num'); add(r.percent_like ? num(r.spread_1_5) : '—', 'num');
-      add(r.n == null ? '—' : fc(r.n), 'num'); add(r.n_conf);
-      add(r._s ? f2(r._s[AL[P.alpha]]) : '—', 'num'); add(r.top1_model);
+      add(r.percent_like ? num(r.headroom) : 'n/a', 'num'); add(r.percent_like ? num(r.spread_1_5) : 'n/a', 'num');
+      add(r.n == null ? 'n/a' : fc(r.n), 'num'); add(r.n_conf);
+      add(r._s ? f2(r._s[AL[P.alpha]]) : 'n/a', 'num'); add(r.top1_model);
       tb.append(tr);
     });
     $('tbl').querySelectorAll('th').forEach((th) => { const k = th.querySelector('button').dataset.k; th.setAttribute('aria-sort', k === sortK ? (sortDir > 0 ? 'ascending' : 'descending') : 'none'); });
@@ -263,7 +263,7 @@ dash.calc('sat_index', {
     if (r._sat == null) {
       const why = document.createElement('div'); why.className = 'why';
       why.textContent = !r.percent_like ? 'not a % score' : 'too few models (' + r.n_families + ')';
-      pc.textContent = '—'; row.append(nm, why, pc); return row;
+      pc.textContent = 'n/a'; row.append(nm, why, pc); return row;
     }
     const tr = document.createElement('div'); tr.className = 'track';
     tr.setAttribute('role', 'meter'); tr.setAttribute('aria-valuemin', '0'); tr.setAttribute('aria-valuemax', '100'); tr.setAttribute('aria-valuenow', String(Math.round(r._sat * 100))); tr.setAttribute('aria-label', (variant ? r.name : r.family_label) + ' saturation');

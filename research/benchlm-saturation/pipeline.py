@@ -78,6 +78,7 @@ def build(benchmarks_path, models_path):
         n_fam = len(vals)
         fmt = meta.get("format") or ""
         name = meta.get("fullName") or meta.get("name") or k
+        name = name.replace(" \u2014 ", ", ").replace("\u2014", "-").replace("\u2013", "-")
         pct = vals[0] <= 100 and not any(t in fmt.lower() or t in name.lower() for t in NONPCT)
         c = counts.get(k, {})
         fid, flabel = key_to_family.get(k, (k, name.split(":")[0].strip()))

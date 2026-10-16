@@ -1,7 +1,7 @@
 
 <div class="sx">
   <header>
-        <p class="take" id="take">—</p>
+        <p class="take" id="take">Loading…</p>
   </header>
 
   <section class="card" id="method">
@@ -17,7 +17,7 @@
       </table>
       <div class="formula" id="formula">
         <b>With item count n (primary):</b> "not separable" means S ≥ threshold, where S = exp(−R²), R = (s₁ − s₅) ÷ √[(s₁(1−s₁) + s₅(1−s₅)) / n_eff], n_eff = n<sup>α</sup> (Akhtar et al., ICML 2026). α = 1 treats items as independent; α = 0.5 assumes heavy correlation. Default α = 0.8.<br>
-        <b>Without n (fallback, marked ◆):</b> "not separable" means top 1 − top 5 ≤ a fixed gap.<br>
+        <b>Without n (fallback, marked ◆):</b> "not separable" means the gap between 1st and 5th ≤ a fixed number of points.<br>
         <b>Close to ceiling</b> in both cases: headroom = 100 − top score ≤ a fixed number of points.
       </div>
     </div>
@@ -38,7 +38,7 @@
         </select>
       </label>
       <div class="grouplabel">Fallback (benchmarks without n)</div>
-      <label>Not separable: top 1 − top 5 ≤ <output id="o-g">5</output> pts<input id="r-g" type="range" min="1" max="20" step="1" value="5" aria-label="Fallback gap threshold"></label>
+      <label>Not separable: gap between 1st and 5th ≤ <output id="o-g">5</output> pts<input id="r-g" type="range" min="1" max="20" step="1" value="5" aria-label="Fallback gap threshold"></label>
     </div>
   </section>
 
@@ -83,7 +83,7 @@
           <th class="num"><button data-k="top1">Top 1</button></th>
           <th class="num"><button data-k="top5">Top 5</button></th>
           <th class="num"><button data-k="headroom">Headroom</button></th>
-          <th class="num"><button data-k="spread_1_5">Top 1 − 5</button></th>
+          <th class="num"><button data-k="spread_1_5">1st vs 5th gap</button></th>
           <th class="num"><button data-k="n">Items n</button></th>
           <th><button data-k="n_conf">n source</button></th>
           <th class="num" id="th-s"><button data-k="_s">S</button></th>

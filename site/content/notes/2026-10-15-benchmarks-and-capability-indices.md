@@ -18,7 +18,7 @@ By how they compute a score, these fall into three families: a **statistical mod
 | | How it is computed | What it covers | What it mainly measures |
 |---|---|---|---|
 | **ECI** (Epoch) | IRT model that infers a capability value from many benchmark scores | 39 benchmarks, 1,123 evaluations, 147 models (figures from the data-insights page, now about a year old) | Overall capability, leaning math, coding, knowledge, agents |
-| **AA Intelligence Index** | Fixed-weight average of 10 evaluations, 0–100 | See table below; current version v4.3.2 | Leans toward agents and real work tasks |
+| **AA Intelligence Index** | Fixed-weight average of 10 evaluations, scaled 0 to 100 | See table below; current version v4.3.2 | Leans toward agents and real work tasks |
 | **Arena Elo** | Blind pairwise votes from users, fit with Bradley-Terry | Open-ended chat, separate boards by category | Human preference, not objective correctness |
 | **LiveBench** | Average of category averages | 23 tasks in 7 categories, new questions monthly | Objective correctness on general tasks |
 
@@ -41,7 +41,7 @@ where *C* is the model's capability, *D* the benchmark's difficulty and *α* its
 
 ### AA Intelligence Index v4.3.2: a weighted average
 
-**Logic.** Ten evaluations with fixed weights, scaled to 0–100. According to Artificial Analysis, evaluations with private test sets make up 45% of the weight. It is mainly text-based and English; images, speech and multilingual are measured separately.
+**Logic.** Ten evaluations with fixed weights, scaled from 0 to 100. According to Artificial Analysis, evaluations with private test sets make up 45% of the weight. It is mainly text-based and English; images, speech and multilingual are measured separately.
 
 | Category | Evaluation | Weight |
 |---|---|---|
