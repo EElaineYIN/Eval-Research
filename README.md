@@ -2,7 +2,7 @@
 
 Personal site and research code on AI evaluation: daily **Eval notes** and **Research** projects.
 
-Live site: https://eelaineyin.github.io/eval-research/
+Live site: https://eelaineyin.github.io/Eval-Research/
 
 ## Layout
 

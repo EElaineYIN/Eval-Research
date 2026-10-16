@@ -3,6 +3,6 @@ tagline: Notes and research on how we measure AI.
 description: Daily notes on AI evaluation and research on benchmark saturation, by Elaine Yin.
 author: Elaine Yin
 github: https://github.com/EElaineYIN
-repo: https://github.com/EElaineYIN/eval-research
+repo: https://github.com/EElaineYIN/Eval-Research
 # GitHub Pages project sites are served under /<repo-name>.
-base_path: /eval-research
+base_path: /Eval-Research

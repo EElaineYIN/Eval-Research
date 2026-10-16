@@ -28,7 +28,7 @@ The two answers give four labels: **Saturated** (close and not separable), **Nea
 
 **Saturation score.** For a single bar: (top score ÷ 100) × S. It is full only when the leader scores 100% *and* the top five are indistinguishable.
 
-**Item counts.** I collected *n* for 63 of the 108 entries from original papers, official pages and BenchLM's descriptions ([item_counts.csv](https://github.com/EElaineYIN/eval-research/blob/main/research/benchlm-saturation/item_counts.csv), with the source of each). Where *n* is unknown, S is estimated from the top-5 gap and the result is marked *est.*
+**Item counts.** I collected *n* for 63 of the 108 entries from original papers, official pages and BenchLM's descriptions ([item_counts.csv](https://github.com/EElaineYIN/Eval-Research/blob/main/research/benchlm-saturation/item_counts.csv), with the source of each). Where *n* is unknown, S is estimated from the top-5 gap and the result is marked *est.*
 
 **Families.** Versions, third-party re-runs and alternative metrics of the same benchmark are grouped (e.g. Terminal-Bench 2.1 as reported by labs, by Vals AI and by Artificial Analysis), and one primary entry represents each family.
 
@@ -49,6 +49,6 @@ The two answers give four labels: **Saturated** (close and not separable), **Nea
 
 ## Data and code
 
-- Pipeline: [`research/benchlm-saturation/pipeline.py`](https://github.com/EElaineYIN/eval-research/tree/main/research/benchlm-saturation) turns a BenchLM snapshot into the dataset used here.
+- Pipeline: [`research/benchlm-saturation/pipeline.py`](https://github.com/EElaineYIN/Eval-Research/tree/main/research/benchlm-saturation) turns a BenchLM snapshot into the dataset used here.
 - Data from [BenchLM.ai](https://www.benchlm.ai) under CC BY-NC 4.0; non-commercial use only.
 - Method: Akhtar et al., *When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation*, ICML 2026 ([arXiv 2602.16763](https://arxiv.org/abs/2602.16763)).
