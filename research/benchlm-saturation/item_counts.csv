@@ -1,0 +1,109 @@
+key,n,n_source,note
+tau2Bench,278,Verified,τ²-bench docs: airline 50 + retail 114 + telecom 114 (BenchLM score mixes domains)
+gdpvalAaNormalized,220,Unconfirmed,same as GDPval-AA
+gdpvalAa,220,Unconfirmed,GDPval public gold subset is 220; subset used by AA not confirmed
+aaAgenticIndex,,Not found,
+terminalBench21,89,Verified,AA / Vals pages: 2.1 keeps 89 tasks (environment fixes)
+valsTerminalBench21,89,Verified,Vals page: 89 tasks
+gertLabs,,Not found,
+browseComp,1266,Verified,"arXiv 2504.12516 (1,287 minus 21 removed)"
+deepSwe,113,BenchLM text,113 software engineering tasks across 91 repositories and 5 languages
+mcpAtlas,1000,Verified,"arXiv 2602.00933: 1,000 tasks, 500 public / 500 private"
+terminalBench2,89,Verified,arXiv 2601.11868: 89 tasks
+mazeBench,,Not found,
+jobBench,130,BenchLM text,130 tasks across 35 occupations
+osWorldVerified,369,BenchLM text,369 real-world computer tasks (361 when eight Google Drive tasks are excluded)
+clawEval,300,BenchLM text,"300 tasks, 2,159 rubrics"
+aaAutomationBench,657,Verified,Artificial Analysis page: 657 tasks (Zapier private subset)
+aaBriefcaseElo,91,Verified,Artificial Analysis page: 91 tasks
+aaGdpPdf,100,Verified,Artificial Analysis page: 100 tasks
+aaTerminalBench4,66,Verified,Artificial Analysis page: 66 tasks
+cyberGym,1507,BenchLM text,"1,507 vulnerability analysis instances"
+aaAnalystAgent,80,Verified,"Artificial Analysis page: 80 questions, 5 runs each"
+apexAgentsAa,452,BenchLM text,452 professional-services agent tasks
+automationBench,600,BenchLM text,600 public automation tasks
+hleWithTools,,Not found,
+tau3Bench,375,Verified,EvalScope docs: 50 + 114 + 114 + 97 (banking_knowledge)
+bfclV4,,Not found,
+osWorld2,108,BenchLM text,BenchLM describes 108 workflows (not confirmed as item count)
+researchClawBench,40,BenchLM text,40 tasks across 10 scientific domains
+toolathlonVerified,,Not found,
+deepSearchQa,900,Verified,arXiv 2601.20975: 900 prompts
+toolathlon,108,Verified,arXiv 2510.25726: 108 tasks
+apprenticeBench,,Not found,
+terminalBench4,66,BenchLM text,66 professional computer-work tasks
+wideResearch,200,Verified,WideSearch arXiv 2508.07999: 200 tasks; may be a different benchmark with a similar name
+aaItbench,59,Verified,Artificial Analysis page: 59 tasks (40 public + 19 private)
+agentsLastExam,,Not found,
+aaTau3Banking,97,Verified,Artificial Analysis page: 97 tasks
+hermesBench,150,BenchLM text,150 tasks across 25 categories
+hermesIndex,150,BenchLM text,"Four suites: Hermes Bench (150 tasks), TerminalBench 4 without its 4 GPU tasks, "
+aaEnterpriseOpsGym,,Not found,
+aaHarveyLab,120,Verified,Artificial Analysis page: 120 private tasks
+aaTerminalBench21,89,Verified,Artificial Analysis page: 89 tasks
+vitaBench,400,Verified,arXiv 2509.26490: 400 tasks (main results use 100 cross-scenario)
+cweBenchV1,120,Verified,cwe-bench.com: 120 held-out tasks
+frontierBench,74,BenchLM text,74 professional computer-work tasks across 7 domains
+qwenClawBench,,Not found,
+apexAgents,,Not found,
+exploitGym,898,BenchLM text,898 exploitation tasks
+financeAgentV2,450,Verified,"Vals page: 927 questions, 450 in the leaderboard test split"
+androidWorld,,Not found,
+deepPlanning,240,Verified,arXiv 2601.18137: 240 unique tasks (travel 120 + shopping 120)
+skillsBench,87,Verified,arXiv 2602.12670: 87 tasks
+draco,,Not found,
+exploitBench,41,Verified,exploitbench.ai: counted environment columns (not an official statement)
+pinchBench,23,BenchLM text,23 OpenClaw agent tasks
+bfclV3,,Not found,
+mcpTasks,,Not found,
+qwenWebBench,,Not found,
+secBenchPro,,Not found,
+coworkBench,,Not found,
+tau2Airline,50,Verified,τ²-bench airline domain
+terminalBenchHard,,Not found,
+terminalBenchScience,,Not found,
+toolathlonVerifiedAvgTurns,108,BenchLM text,108 verified real-world tool-use tasks
+toolathlonVerifiedPass3,108,BenchLM text,108 verified real-world tool-use tasks
+toolathlonVerifiedPass3All,108,BenchLM text,108 verified real-world tool-use tasks
+webArenaVerified,812,BenchLM text,812 verified tasks; separate 258-task Hard subset
+atomicEvasion,,Not found,
+atomicNetworkAttackSimulation,,Not found,
+atomicVulnerabilityResearch,,Not found,
+lastOnesCyberRangeCompletion,,Not found,
+legalAgentBenchHeldoutAllPass,,Not found,
+legalAgentBenchHeldoutCriterionPass,,Not found,
+mleBenchLite,,Not found,
+bankerToolBench,,Not found,
+cyScenarioBenchAverageSuccess,11,BenchLM text,11 cyber scenarios
+cyScenarioBenchScenariosSolved,11,BenchLM text,11 cyber scenarios
+cybench,40,BenchLM text,40 professional CTF tasks
+frontierCyber,197,BenchLM text,197 dynamic cyber tasks
+mcpAtlasClaimCoverage,1000,Inferred from base,MCP-Atlas metric variant
+mmClawBench,,Not found,
+osWorld,369,Verified,369 tasks as in OSWorld-Verified
+spreadsheetBench2,,Not found,
+terminalBench3,,Not found,
+aaHarveyLabV11,120,BenchLM text,120 private legal tasks across 24 practice areas
+aceCyberRangeSolved,41,BenchLM text,41 advanced cyber-range challenges
+anthropicOssFuzzAnyCrash,,Not found,
+anthropicOssFuzzWritePrimitive,,Not found,
+automationBenchZapier106,,Not found,
+ctiRealm,,Not found,
+cweBench,120,Inferred from base,CWE-bench variant (version not checked)
+deckBench,,Not found,
+designArenaAgenticWebDev,,Not found,
+firefox147WorkingExploit,,Not found,
+gaia,466,BenchLM text,466
+gdpvalRubrics,,Not found,
+kimiClaw247,17,BenchLM text,"17 professional scenarios, 610 evaluation points"
+lastOnesCyberRangeSteps,,Not found,
+legalAgentBenchAllPass,1235,BenchLM text,"1,235 legal-agent tasks"
+legalAgentBenchCriterionPass,1235,BenchLM text,"1,235 legal-agent tasks"
+mcpMarkVerified,127,Verified,mcpmark.ai: 127 tasks (paper also 127)
+mobileWorld,,Not found,
+multiAgentBrowseCompPrerelease,1266,Inferred from base,BrowseComp variant
+sconePostCutoffRevenueUsdM,,Not found,
+sconePostCutoffSuccess,,Not found,
+sreBench,262,BenchLM text,262 binary reverse-engineering instances
+terminalBenchScience6xVerifier,,Not found,
+webVoyager,,Not found,

@@ -1,0 +1,62 @@
+
+.sx { font-family: var(--sans); color: var(--fg); max-width: 1100px; margin-inline: auto; display: flex; flex-direction: column; gap: var(--s3); --st-sat: #184f95; --st-near: #3987e5; --st-disc: #86b6ef; --st-under: var(--chart-muted); }
+.sx h1 { font-family: var(--serif); font-weight: 400; font-size: var(--fs-h1); margin: 0; }
+.sx .take { margin: 4px 0 0; color: var(--fg2); font-size: var(--fs-body); max-width: 70ch; }
+.sx .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s4); }
+.sx .card h2 { font-size: var(--fs-h3); font-weight: var(--fw-m); margin: 0 0 2px; }
+.sx .note { color: var(--muted); font-size: var(--fs-cap); margin: 0 0 var(--s2); max-width: 80ch; }
+.sx .filters { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: end; }
+.sx .filters label { display: flex; flex-direction: column; gap: 2px; font-size: var(--fs-cap); color: var(--fg2); min-width: 160px; flex: 1 1 160px; }
+.sx .filters output { font-weight: var(--fw-m); color: var(--fg); font-variant-numeric: tabular-nums; }
+.sx .filters input[type=range] { width: 100%; }
+.sx .filters select { padding: 4px 6px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); color: var(--fg); }
+.sx .grouplabel { font-size: var(--fs-cap); color: var(--muted); margin: var(--s2) 0 0; flex-basis: 100%; }
+.sx .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: var(--s2); }
+.sx .tile { border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s2) var(--s3); display: flex; flex-direction: column; gap: 2px; min-height: 64px; }
+.sx .tile b { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.1; }
+.sx .tile span { font-size: var(--fs-cap); color: var(--fg2); display: flex; align-items: center; gap: 6px; }
+.sx .sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+.sx .chartbox { position: relative; min-height: 400px; }
+.sx svg { display: block; width: 100%; }
+.sx .tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--s1) var(--s2); font-size: var(--fs-cap); max-width: 280px; opacity: 0; z-index: 3; }
+.sx .tip .v { font-weight: var(--fw-m); }
+.sx .tip .s { color: var(--fg2); }
+.sx .tblwrap { max-height: 460px; overflow: auto; margin-top: var(--s2); border: 1px solid var(--line); border-radius: var(--radius); }
+.sx table { border-collapse: collapse; width: 100%; font-size: var(--fs-cap); }
+.sx th { position: sticky; top: 0; background: var(--panel); text-align: left; padding: 0; border-bottom: 1px solid var(--line); }
+.sx th button { all: unset; cursor: pointer; padding: 6px 8px; display: block; width: 100%; box-sizing: border-box; color: var(--fg2); white-space: nowrap; }
+.sx th button:focus-visible { outline: 2px solid var(--fg); }
+.sx td { padding: 5px 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.sx td.num, .sx th.num button { text-align: right; }
+.sx td.cls { white-space: nowrap; }
+.sx td.cls i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.sx input[type=search] { padding: 6px 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); color: var(--fg); min-width: 200px; }
+.sx ul.cav { margin: 0; padding-left: 1.2em; color: var(--fg2); font-size: var(--fs-cap); display: flex; flex-direction: column; gap: 4px; max-width: 90ch; }
+.sx .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--fs-cap); color: var(--fg2); margin-bottom: 4px; }
+.sx .legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sx .legend svg { width: 12px; height: 12px; display: inline-block; }
+.sx .method { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--s3); }
+.sx .quad { border-collapse: separate; border-spacing: 4px; font-size: var(--fs-cap); }
+.sx .quad th { position: static; background: none; border: 0; padding: 4px 6px; color: var(--fg2); font-weight: var(--fw-m); }
+.sx .quad td { border: 1px solid var(--line); border-radius: var(--radius); padding: 8px; vertical-align: top; }
+.sx .quad td b { display: block; margin-bottom: 2px; }
+.sx .formula { font-size: var(--fs-cap); color: var(--fg2); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s2) var(--s3); line-height: 1.6; }
+.sx .meters { display: flex; flex-direction: column; gap: 6px; min-height: 120px; }
+.sx .mrow { display: grid; grid-template-columns: minmax(0, 15rem) minmax(80px, 1fr) 3.2rem; align-items: center; gap: var(--s2); font-size: var(--fs-cap); }
+.sx .mrow .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--fg); }
+.sx .mrow .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--fg2); }
+.sx .track { position: relative; height: 10px; border-radius: 5px; background: var(--grid); overflow: hidden; }
+.sx .fill { position: absolute; inset: 0 auto 0 0; border-radius: 5px; }
+.sx .fill.est { opacity: .45; }
+.sx .est-tag { margin-left: 6px; font-size: 10px; padding: 0 4px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); vertical-align: 1px; }
+.sx .vbtn { all: unset; cursor: pointer; margin-left: 6px; font-size: 10px; padding: 0 5px; border-radius: 3px; background: var(--bg); border: 1px solid var(--line); color: var(--fg2); }
+.sx .vbtn:focus-visible { outline: 2px solid var(--fg); }
+.sx .mrow.variant { padding-left: 16px; }
+.sx .mrow.variant .nm { color: var(--fg2); }
+.sx .mrow.variant .track { height: 6px; }
+.sx .mrow .why { color: var(--muted); font-size: 11px; }
+.sx tr.variant td { color: var(--fg2); }
+.sx .more { all: unset; cursor: pointer; margin-top: var(--s2); font-size: var(--fs-cap); color: var(--fg2); text-decoration: underline; }
+.sx .more:focus-visible { outline: 2px solid var(--fg); }
+@media (max-width: 520px) { .sx .mrow { grid-template-columns: minmax(0, 1fr) 3.2rem; } .sx .mrow .track { grid-column: 1 / -1; grid-row: 2; } }
+.sx [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--dur); }

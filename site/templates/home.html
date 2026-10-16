@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="wrap hero">
+  <h1>{{ site.tagline }}</h1>
+  <p class="lede">I keep daily notes on AI evaluation — what benchmarks measure, how capability indices are built, and where they break — and turn the gaps I find into research and, eventually, new benchmarks.</p>
+</section>
+
+<section class="wrap split">
+  <div>
+    <div class="sec-head"><h2>Eval notes</h2><a href="{{ u('/notes/') }}">All notes →</a></div>
+    <ul class="entries">{% for item in notes %}{% include "_entry.html" %}{% else %}<li class="empty">No notes yet.</li>{% endfor %}</ul>
+  </div>
+  <div>
+    <div class="sec-head"><h2>Research</h2><a href="{{ u('/research/') }}">All research →</a></div>
+    <ul class="entries">{% for item in research %}{% include "_entry.html" %}{% else %}<li class="empty">No projects yet.</li>{% endfor %}</ul>
+  </div>
+</section>
+{% endblock %}

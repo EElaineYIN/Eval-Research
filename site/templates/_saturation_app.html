@@ -1,0 +1,109 @@
+
+<div class="sx">
+  <header>
+        <p class="take" id="take">—</p>
+  </header>
+
+  <section class="card" id="method">
+    <h2>How each benchmark is classified</h2>
+    <p class="note">One label per benchmark, from two questions: is the top score close to the ceiling, and can the top models still be told apart?</p>
+    <div class="method">
+      <table class="quad" aria-label="Classification grid">
+        <thead><tr><th></th><th>Close to ceiling</th><th>Far from ceiling</th></tr></thead>
+        <tbody>
+          <tr><th>Top 5 not separable</th><td><b>Saturated</b>No room left and no signal between leaders.</td><td><b>Under-powered</b>Scores are still low, but the test cannot separate the leaders (often too few items).</td></tr>
+          <tr><th>Top 5 separable</th><td><b>Near ceiling</b>Close to the top, but leaders still differ. Watch it.</td><td><b>Discriminative</b>Room to grow and real gaps between models.</td></tr>
+        </tbody>
+      </table>
+      <div class="formula" id="formula">
+        <b>With item count n (primary):</b> "not separable" means S ≥ threshold, where S = exp(−R²), R = (s₁ − s₅) ÷ √[(s₁(1−s₁) + s₅(1−s₅)) / n_eff], n_eff = n<sup>α</sup> (Akhtar et al., ICML 2026). α = 1 treats items as independent; α = 0.5 assumes heavy correlation. Default α = 0.8.<br>
+        <b>Without n (fallback, marked ◆):</b> "not separable" means top 1 − top 5 ≤ a fixed gap.<br>
+        <b>Close to ceiling</b> in both cases: headroom = 100 − top score ≤ a fixed number of points.
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="controls">
+    <h2>Thresholds</h2>
+    <p class="note">Defaults are a starting point, not a standard. Every chart and the table below update as you move them.</p>
+    <div class="filters">
+      <label>Close to ceiling: headroom ≤ <output id="o-h">10</output> pts<input id="r-h" type="range" min="2" max="30" step="1" value="10" aria-label="Headroom threshold"></label>
+      <div class="grouplabel">Primary method (benchmarks with known n)</div>
+      <label>Not separable: S ≥ <output id="o-t">0.70</output><input id="r-t" type="range" min="0.3" max="0.95" step="0.05" value="0.7" aria-label="S-index threshold"></label>
+      <label>Item correlation α (n_eff = n^α)
+        <select id="alpha" aria-label="Alpha">
+          <option value="0.5">α = 0.5 (paper default, lenient)</option>
+          <option value="0.8" selected>α = 0.8 (default here)</option>
+          <option value="1">α = 1 (independent items, strict)</option>
+        </select>
+      </label>
+      <div class="grouplabel">Fallback (benchmarks without n)</div>
+      <label>Not separable: top 1 − top 5 ≤ <output id="o-g">5</output> pts<input id="r-g" type="range" min="1" max="20" step="1" value="5" aria-label="Fallback gap threshold"></label>
+    </div>
+  </section>
+
+  <section class="tiles" id="tiles" aria-live="polite"></section>
+
+  <section class="card" id="meter">
+    <h2>Saturation meter</h2>
+    <p class="note">Saturation = (top score ÷ 100) × S. The bar is full only when the leader scores 100% and the top 5 are statistically indistinguishable; either condition alone keeps it partial. One row per benchmark: versions, re-runs by other evaluators and alternative metrics are folded under it (click <b>+N</b> to see them). Color is the label. A pale bar marked <b>est.</b> means no item count was found, so S is estimated from the top-5 gap.</p>
+    <div class="legend" id="legend0"></div>
+    <div class="meters" id="meters"></div>
+    <button type="button" class="more" id="more">Show all</button>
+  </section>
+
+  <section class="card" id="sview">
+    <h2>Headroom × S-index</h2>
+    <p class="note">Benchmarks with a known item count. The dot is S at the selected α; the vertical line spans α = 1 (bottom) to α = 0.5 (top). A line that crosses the threshold means the label depends on α.</p>
+    <div class="legend" id="legend2"></div>
+    <div class="chartbox" id="chartbox2"><div class="tip" id="tip2"></div></div>
+  </section>
+
+  <section class="card" id="allview">
+    <h2>Headroom × top-5 gap (all benchmarks)</h2>
+    <p class="note">One point per benchmark family (percentage-scored, at least 5 model families). Color is the final label; ● item count known (S-index), ◆ estimated from the top-5 gap.</p>
+    <div class="legend" id="legend1"></div>
+    <div class="chartbox" id="chartbox1"><div class="tip" id="tip1"></div></div>
+  </section>
+
+  <section class="card" id="tablecard">
+    <h2>All 108 benchmarks</h2>
+    <p class="note">Click a header to sort. "Primary" is the entry shown for its family in the meter and charts (classifiable first, then one with a known item count, then the most model families). "Stable" means the label is the same at α = 0.5, 0.8 and 1.</p>
+    <input type="search" id="q" placeholder="Search benchmarks" aria-label="Search benchmarks">
+    <div class="tblwrap">
+      <table id="tbl">
+        <thead><tr>
+          <th><button data-k="name">Entry</button></th>
+          <th><button data-k="family_label">Benchmark family</button></th>
+          <th><button data-k="_role">Role</button></th>
+          <th><button data-k="_cls">Label</button></th>
+          <th class="num"><button data-k="_sat">Saturation</button></th>
+          <th><button data-k="_rob">Across α</button></th>
+          <th class="num"><button data-k="n_families">Families</button></th>
+          <th class="num"><button data-k="top1">Top 1</button></th>
+          <th class="num"><button data-k="top5">Top 5</button></th>
+          <th class="num"><button data-k="headroom">Headroom</button></th>
+          <th class="num"><button data-k="spread_1_5">Top 1 − 5</button></th>
+          <th class="num"><button data-k="n">Items n</button></th>
+          <th><button data-k="n_conf">n source</button></th>
+          <th class="num" id="th-s"><button data-k="_s">S</button></th>
+          <th><button data-k="top1_model">Top model</button></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="caveats">
+    <h2>Caveats</h2>
+    <ul class="cav">
+      <li>Single snapshot (Oct 15, 2026). No history yet, so the pace of progress is not measured.</li>
+      <li>BenchLM does not say whether a score is self-reported or independently reproduced; leaders may be optimistic.</li>
+      <li>Some entries (e.g. τ²-Bench) mix several domains or metrics in one number, so their saturation reading is noisy.</li>
+      <li>Item counts come from original papers, official pages or BenchLM's own descriptions. "BenchLM text" and "Inferred from base" are not individually checked. The formula assumes the top 5 were scored on the same items, which is not guaranteed.</li>
+      <li>α = 0.8 has no theoretical basis; it sits between the paper's default (0.5) and independent items (1). Labels marked "Varies" are sensitive to that choice.</li>
+      <li>Scores use each model family's best entry. BenchLM lists 161 agentic entries; 108 have scores.</li>
+    </ul>
+    <p class="note" style="margin-top:var(--s2)">Data from BenchLM.ai (CC BY-NC 4.0), snapshot Oct 15, 2026. Non-commercial use only. S-index: Akhtar et al., "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation", ICML 2026.</p>
+  </section>
+</div>

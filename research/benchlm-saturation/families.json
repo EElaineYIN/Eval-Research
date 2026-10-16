@@ -1,0 +1,145 @@
+{
+  "tau2": {
+    "label": "τ²-Bench",
+    "keys": [
+      "tau2Bench",
+      "tau2Airline"
+    ]
+  },
+  "gdpval": {
+    "label": "GDPval",
+    "keys": [
+      "gdpvalAaNormalized",
+      "gdpvalAa",
+      "gdpvalRubrics"
+    ]
+  },
+  "tb2": {
+    "label": "Terminal-Bench 2.0 / 2.1",
+    "keys": [
+      "terminalBench21",
+      "valsTerminalBench21",
+      "terminalBench2",
+      "aaTerminalBench21"
+    ]
+  },
+  "browsecomp": {
+    "label": "BrowseComp",
+    "keys": [
+      "browseComp",
+      "multiAgentBrowseCompPrerelease"
+    ]
+  },
+  "mcpatlas": {
+    "label": "MCP Atlas",
+    "keys": [
+      "mcpAtlas",
+      "mcpAtlasClaimCoverage"
+    ]
+  },
+  "osworld": {
+    "label": "OSWorld (Verified)",
+    "keys": [
+      "osWorldVerified",
+      "osWorld"
+    ]
+  },
+  "automation": {
+    "label": "AutomationBench",
+    "keys": [
+      "aaAutomationBench",
+      "automationBench",
+      "automationBenchZapier106"
+    ]
+  },
+  "tb4": {
+    "label": "Terminal-Bench 4.0",
+    "keys": [
+      "aaTerminalBench4",
+      "terminalBench4"
+    ]
+  },
+  "apex": {
+    "label": "APEX-Agents",
+    "keys": [
+      "apexAgentsAa",
+      "apexAgents"
+    ]
+  },
+  "tau3": {
+    "label": "τ³-Bench (revised τ², adds banking)",
+    "keys": [
+      "tau3Bench",
+      "aaTau3Banking"
+    ]
+  },
+  "toolathlon": {
+    "label": "Toolathlon",
+    "keys": [
+      "toolathlonVerified",
+      "toolathlonVerifiedAvgTurns",
+      "toolathlonVerifiedPass3",
+      "toolathlonVerifiedPass3All"
+    ]
+  },
+  "harvey": {
+    "label": "Harvey LAB (Legal Agent Benchmark)",
+    "keys": [
+      "aaHarveyLab",
+      "legalAgentBenchHeldoutAllPass",
+      "legalAgentBenchHeldoutCriterionPass",
+      "aaHarveyLabV11",
+      "legalAgentBenchAllPass",
+      "legalAgentBenchCriterionPass"
+    ]
+  },
+  "cwe": {
+    "label": "CWE-bench",
+    "keys": [
+      "cweBenchV1",
+      "cweBench"
+    ]
+  },
+  "tb3": {
+    "label": "Terminal-Bench 3.0",
+    "keys": [
+      "frontierBench",
+      "terminalBench3"
+    ]
+  },
+  "tbsci": {
+    "label": "Terminal-Bench-Science 0.1",
+    "keys": [
+      "terminalBenchScience",
+      "terminalBenchScience6xVerifier"
+    ]
+  },
+  "lastones": {
+    "label": "The Last Ones cyber range",
+    "keys": [
+      "lastOnesCyberRangeCompletion",
+      "lastOnesCyberRangeSteps"
+    ]
+  },
+  "cyscen": {
+    "label": "CyScenarioBench",
+    "keys": [
+      "cyScenarioBenchAverageSuccess",
+      "cyScenarioBenchScenariosSolved"
+    ]
+  },
+  "ossfuzz": {
+    "label": "Anthropic OSS-Fuzz",
+    "keys": [
+      "anthropicOssFuzzAnyCrash",
+      "anthropicOssFuzzWritePrimitive"
+    ]
+  },
+  "scone": {
+    "label": "SCONE post-cutoff exploits",
+    "keys": [
+      "sconePostCutoffRevenueUsdM",
+      "sconePostCutoffSuccess"
+    ]
+  }
+}

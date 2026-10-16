@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Not found · {{ site.title }}{% endblock %}
+{% block main %}
+<section class="wrap page-head">
+  <h1>Page not found</h1>
+  <p class="lede">That page doesn't exist. Try the <a href="{{ u('/notes/') }}">notes</a> or <a href="{{ u('/research/') }}">research</a>.</p>
+</section>
+{% endblock %}

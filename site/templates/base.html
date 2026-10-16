@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ site.title }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ u('/static/css/site.css') }}">
+{% block head %}{% endblock %}
+<script>
+  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap bar">
+    <a class="brand" href="{{ u('/') }}">{{ site.title }}</a>
+    <nav aria-label="Main">
+      {% for key, sec in sections.items() %}
+      <a href="{{ u('/' ~ key ~ '/') }}" {% if path.startswith('/' ~ key ~ '/') %}aria-current="page"{% endif %}>{{ sec.title }}</a>
+      {% endfor %}
+      <button class="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <span>© {{ year }} {{ site.author }}</span>
+    <a href="{{ site.github }}">GitHub</a>
+    <a href="{{ site.repo }}">Source</a>
+  </div>
+</footer>
+<script>
+  document.querySelector('.theme').addEventListener('click', function () {
+    var root = document.documentElement;
+    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    window.dispatchEvent(new Event('resize'));
+  });
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

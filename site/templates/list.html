@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ sections[section].title }} · {{ site.title }}{% endblock %}
+{% block main %}
+<section class="wrap page-head">
+  <h1>{{ sections[section].title }}</h1>
+  <p class="lede">{{ sections[section].blurb }}</p>
+</section>
+<section class="wrap">
+  <ul class="entries">{% for item in items %}{% include "_entry.html" %}{% else %}<li class="empty">Nothing here yet.</li>{% endfor %}</ul>
+</section>
+{% endblock %}

@@ -1,0 +1,7 @@
+<li class="entry">
+  <a href="{{ u(item.url) }}">
+    <span class="entry-meta">{% if item.date %}<time datetime="{{ item.date.isoformat() }}">{{ item.date | date }}</time>{% endif %}{% if item.status %}<span class="pill">{{ item.status }}</span>{% endif %}</span>
+    <span class="entry-title">{{ item.title }}</span>
+    {% if item.summary %}<span class="entry-sum">{{ item.summary }}</span>{% endif %}
+  </a>
+</li>

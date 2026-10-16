@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} · {{ site.title }}{% endblock %}
+{% block description %}{{ page.summary or site.description }}{% endblock %}
+{% block head %}{% if page.app == 'saturation' %}<link rel="stylesheet" href="{{ u('/static/css/saturation.css') }}">{% endif %}{% endblock %}
+{% block main %}
+<article class="post {% if page.app %}wide{% endif %}">
+  <header class="wrap post-head">
+    <a class="crumb" href="{{ u('/' ~ page.section ~ '/') }}">{{ sections[page.section].title }}</a>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      {% if page.date %}<time datetime="{{ page.date.isoformat() }}">{{ page.date | date }}</time> · {% endif %}{{ page.minutes }} min read
+      {% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+    </p>
+    {% if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+  </header>
+
+  {% if page.app == 'saturation' %}
+  <div class="wrap app" id="sat-app" data-src="{{ u('/static/data/agentic_saturation.json') }}">
+    {% include "_saturation_app.html" %}
+  </div>
+  {% endif %}
+
+  <div class="wrap prose">{{ page.html | safe }}</div>
+
+  <nav class="wrap pager" aria-label="More {{ sections[page.section].title | lower }}">
+    {% if older %}<a href="{{ u(older.url) }}"><span>Older</span>{{ older.title }}</a>{% else %}<span></span>{% endif %}
+    {% if newer %}<a class="next" href="{{ u(newer.url) }}"><span>Newer</span>{{ newer.title }}</a>{% endif %}
+  </nav>
+</article>
+{% endblock %}
+{% block scripts %}{% if page.app == 'saturation' %}
+<script src="{{ u('/static/js/vendor/d3.v7.min.js') }}"></script>
+<script src="{{ u('/static/js/saturation.js') }}"></script>
+{% endif %}{% endblock %}
