@@ -97,6 +97,12 @@ nav a:hover, nav a[aria-current="page"] { color: var(--fg); border-bottom-color:
 .prose .note, .prose .callout { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; font-size: .9375rem; color: var(--fg2); }
 .prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.5em 0; }
 .app { margin: 32px auto 8px; }
+/* Wide posts: tables use the full width, running text keeps a readable measure. */
+.post.wide .prose, .post.wide .pager { max-width: var(--wide); }
+.post.wide .prose > :not(table) { max-width: var(--measure); }
+.post.wide .prose table { display: table; width: 100%; }
+@media (max-width: 900px) { .post.wide .prose table { display: block; } }
+.prose td:first-child { font-weight: 500; color: var(--fg); }
 .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; max-width: calc(var(--measure) + 64px); }
 .pager a { text-decoration: none; color: var(--fg); font-family: var(--serif); font-size: 1.05rem; display: grid; max-width: 48%; }
 .pager a span { font-family: var(--sans); font-size: var(--fs-cap); color: var(--muted); }

@@ -3,7 +3,7 @@
 {% block description %}{{ page.summary or site.description }}{% endblock %}
 {% block head %}{% if page.app == 'saturation' %}<link rel="stylesheet" href="{{ u('/static/css/saturation.css') }}">{% endif %}{% endblock %}
 {% block main %}
-<article class="post {% if page.app %}wide{% endif %}">
+<article class="post {% if page.app or page.layout == 'wide' %}wide{% endif %}">
   <header class="wrap post-head">
     <a class="crumb" href="{{ u('/' ~ page.section ~ '/') }}">{{ sections[page.section].title }}</a>
     <h1>{{ page.title }}</h1>
