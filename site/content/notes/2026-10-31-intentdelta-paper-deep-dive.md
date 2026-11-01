@@ -112,18 +112,18 @@ Detection and Intention Recovery use all gold constraints as their denominator, 
 
 ### Action-level evaluation
 
-**Hard Success** evaluates must-have satisfaction. Let *Mₐ* and *Mɡ* denote the numbers of must-have constraints satisfied by the agent and human reference, and *nₘ* the total number of must-have constraints.
+**Hard Success** evaluates must-have satisfaction. Let *Mₐ* and *M<sub>g</sub>* denote the numbers of must-have constraints satisfied by the agent and human reference, and *nₘ* the total number of must-have constraints.
 
 - For a feasible task, *Gₜ = 1* if *Mₐ = nₘ*, and *0* otherwise.
-- For an infeasible task, *Gₜ = 1* if *Mₐ ≥ Mɡ*, and *0* otherwise.
+- For an infeasible task, *Gₜ = 1* if *Mₐ ≥ M<sub>g</sub>*, and *0* otherwise.
 
 When all must-have constraints can be satisfied, the agent must satisfy all of them. When they cannot, the human reference supplies the comparison threshold.
 
 **Action Score** adds lower-priority preferences, conditioned on Hard Success. Preferred constraints receive weight 2 and optional constraints receive weight 1:
 
 - *Sₐ = 2Pₐ + Oₐ*
-- *Sɡ = 2Pɡ + Oɡ*
-- *ActionScoreₜ = Gₜ × min(1, Sₐ / Sɡ)*
+- *S<sub>g</sub> = 2P<sub>g</sub> + O<sub>g</sub>*
+- *ActionScoreₜ = Gₜ × min(1, Sₐ / S<sub>g</sub>)*
 
 Here, *P* and *O* count satisfied preferred and optional constraints. The gate *Gₜ* means that failing Hard Success makes Action Score zero. The cap prevents an agent from scoring above one when it exceeds the reference's weighted preference score.
 
