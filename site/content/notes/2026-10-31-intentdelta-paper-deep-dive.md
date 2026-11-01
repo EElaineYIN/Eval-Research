@@ -200,3 +200,38 @@ IntentDelta directly evaluates the first two under a controlled sequence of chan
 ## Source
 
 [IntentDelta, arXiv:2610.33806](https://arxiv.org/abs/2610.33806). These are independent reading notes; the discussion labeled as my reading is interpretation rather than a reported experimental result.
+
+
+## My Research Reflections & Open Questions
+
+*The following reflections are my own hypotheses and proposed evaluation directions, inspired by reading IntentDelta. They are not findings reported or validated by the paper's authors.*
+
+### 1. Agent-dependent user responses: realism with experimental control
+
+Different agents can lead the same user down different conversational paths. An agent that asks a useful clarification question may help the user articulate a preference earlier; an agent that exposes a feasibility conflict may prompt a different revision of the request. Fixed replay makes comparisons controlled and reproducible, but it cannot directly measure these effects because later user utterances remain unchanged regardless of the agent's behavior.
+
+**My hypothesis:** allowing user responses to depend on the agent could reveal important differences in collaborative ability that fixed replay misses. The challenge is to make this interaction responsive without making the evaluation arbitrary. How can we distinguish an agent helping a user clarify an existing preference from steering the user toward an outcome that is merely easier for the agent?
+
+A possible design would pair fixed replay with a separate interactive track. In the interactive track, agents would start from the same underlying user profile, initial information, task environment, and rules for permissible preference updates, while subsequent utterances could differ. A simulator would need explicit rules for what the user knows, when information can be revealed, and which changes require evidence or user choice. Human checks would be needed to assess whether its responses remain plausible and consistent with the profile.
+
+For fairness and reproducibility, I would compare agents across matched profiles and repeated trials, record complete interaction traces and simulator versions, and report uncertainty and sensitivity to different user policies. Equal starting conditions and response rules may be a more appropriate control than identical utterances in this setting. The open question is whether the resulting ranking reflects agent quality or artifacts of the user model.
+
+### 2. Constraint trade-offs: evaluate the compromise, not only the count
+
+The paper already distinguishes priority tiers and weights preferred and optional constraints in Action Score. My concern is more specific: when must-have constraints cannot all be satisfied, matching the human reference's count does not necessarily imply an equally good compromise. Two solutions can satisfy the same number of requirements while sacrificing very different things. For example, exceeding a travel budget slightly and violating a critical arrival deadline may each count as one violation, yet have very different consequences for the user.
+
+**My hypothesis:** evaluating trade-off quality requires attention to which constraints are relaxed, the magnitude and consequences of each violation, and whether the user accepts the compromise. Even constraints in the same priority tier may differ in practical importance. An agent should also explain the conflict and seek agreement before relaxing a requirement that the user has treated as essential.
+
+A complementary evaluation could use user-grounded pairwise comparisons of feasible alternatives, severity-aware violation scores, and checks for whether a proposed solution is dominated by an available alternative. Explicitly non-negotiable constraints would remain separate from preferences that can be traded off. Such measures would need independently elicited preferences or human judgments; assigning arbitrary weights would simply replace one oversimplification with another.
+
+The open question is how to recognize multiple acceptable compromises without treating a single reference execution as the only valid answer, while keeping judgments consistent and affordable.
+
+### 3. Proactive goal progress: measure benefit after interaction costs
+
+Following each updated request is only one part of helping a user achieve a goal. A stronger agent might detect a conflict early, explain why the current request is infeasible, and present useful alternatives before the user has to discover the problem and adjust the request. Another agent might eventually reach the same outcome only after repeated corrections from the user.
+
+**My hypothesis:** proactive assistance should receive credit when it improves the outcome or reduces the user's effort, but asking more questions or suggesting more alternatives is not inherently better. Premature clarification can interrupt progress, and an unsupported warning can create unnecessary work. Fewer turns alone are also insufficient evidence of success: an agent could finish quickly by overlooking a requirement.
+
+I would compare proactive behavior with a reactive baseline on matched tasks and user profiles, measuring final user-valued outcome quality alongside time to a satisfactory solution, avoidable failed actions, correction burden, and user effort. Early conflict detection should be checked for correctness, and alternatives should be judged for feasibility, relevance, and acceptance by the user. A useful summary would be the gain in outcome quality and effort saved after accounting for additional questions, delay, and cognitive load, with those components also reported separately.
+
+The open question is when an intervention produces enough benefit to justify its interaction cost. This would help distinguish an agent that merely tracks evolving intentions from one that helps the user make informed decisions and reach a satisfactory goal sooner.
