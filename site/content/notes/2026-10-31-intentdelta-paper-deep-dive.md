@@ -57,7 +57,7 @@ For example, a user might raise a travel budget to $1,800 while changing nonstop
 
 
 <figure style="margin: 1.5rem 0;">
-<a href="/Eval-Research/files/intentdelta-constraint-example.png" target="_blank" rel="noopener"><img src="/Eval-Research/files/intentdelta-constraint-example.png" alt="Example intention with budget, flight, and hotel-location constraints and their priorities." style="display: block; width: 100%; height: auto;"></a>
+<a href="/Eval-Research/static/files/intentdelta-constraint-example.png" target="_blank" rel="noopener"><img src="/Eval-Research/static/files/intentdelta-constraint-example.png" alt="Example intention with budget, flight, and hotel-location constraints and their priorities." style="display: block; width: 100%; height: auto;"></a>
 <figcaption>Illustrative initial travel intention: a budget of at most $1,500 and nonstop flights are must-haves; a downtown hotel is preferred. The later update can change both values and priorities. Click the image to view it at full size.</figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ Subsequent user utterances do not depend on the tested agent's actual actions. T
 
 
 <figure style="margin: 1.5rem 0;">
-<a href="/Eval-Research/files/intentdelta-evaluation-pipeline.png" target="_blank" rel="noopener"><img src="/Eval-Research/files/intentdelta-evaluation-pipeline.png" alt="IntentDelta evaluation pipeline from human annotation through agent execution, LLM judging, deterministic scoring, and human validation." style="display: block; width: 100%; height: auto;"></a>
+<a href="/Eval-Research/static/files/intentdelta-evaluation-pipeline.png" target="_blank" rel="noopener"><img src="/Eval-Research/static/files/intentdelta-evaluation-pipeline.png" alt="IntentDelta evaluation pipeline from human annotation through agent execution, LLM judging, deterministic scoring, and human validation." style="display: block; width: 100%; height: auto;"></a>
 <figcaption>Evaluation overview. Human references guide LLM judgments and deterministic scoring. The 95% human–LLM agreement shown here concerns judgment validation on 100 sampled agent outputs, separate from the 97% annotation agreement discussed above. Click the image to view it at full size.</figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ Taken together, the benchmark exposes challenges in updating intentions without 
 
 
 <figure style="margin: 1.5rem 0;">
-<a href="/Eval-Research/files/intentdelta-main-results.png" target="_blank" rel="noopener"><img src="/Eval-Research/files/intentdelta-main-results.png" alt="Main results for eleven agents on TravelPlanner and WebShop, including Detection, Intention Recovery, Hard Success, and Action Score." style="display: block; width: 100%; height: auto;"></a>
+<a href="/Eval-Research/static/files/intentdelta-main-results.png" target="_blank" rel="noopener"><img src="/Eval-Research/static/files/intentdelta-main-results.png" alt="Main results for eleven agents on TravelPlanner and WebShop, including Detection, Intention Recovery, Hard Success, and Action Score." style="display: block; width: 100%; height: auto;"></a>
 <figcaption>Main results from the paper (Table 3). Det. means Detection and Rec. means Intention Recovery. All values use a 0–100 scale; higher is better. Click the image to view it at full size.</figcaption>
 </figure>
 
