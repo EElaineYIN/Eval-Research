@@ -179,30 +179,9 @@ Other reasonable solutions may satisfy different subsets of constraints. Compari
 
 Must-have, preferred, and optional provide an interpretable representation, but real preferences may be continuous or context dependent. A requirement's importance can also depend on the cost of satisfying it or on its relationship with other requirements.
 
-## 9. My reading: controlled intent tracking versus interactive collaboration
+## 9. My Research Reflections & Open Questions
 
-The benchmark's useful contribution is to make **current intention explicit and evaluable at every turn**, with a corresponding human execution. This helps separate misunderstanding from execution failure.
-
-My main question concerns the fixed replay protocol. In a live interaction, an agent can change the conversation itself. A clarification question might help a user articulate a preference earlier. A recommendation might reveal a new trade-off. A failed action might cause a different revision of the goal.
-
-Because every tested agent receives the same subsequent utterances, IntentDelta cannot directly establish how well agents support this feedback loop. An agent can be good at tracking a supplied trajectory while still being less effective at helping a user discover or refine their goal.
-
-This suggests a complementary evaluation direction: allow user responses to depend on agent behavior, while carefully controlling the reliability and comparability of those responses. Such an evaluation could examine whether clarification improves shared understanding, whether proposed compromises are acceptable, and whether the final outcome reflects the user's preferences.
-
-For my own evaluation framework, I would distinguish three questions:
-
-1. **Intent tracking:** Does the agent understand the user's current requirements?
-2. **Task execution:** Can it act successfully on that understanding?
-3. **Interactive collaboration:** Does its behavior help the user clarify and achieve a satisfactory goal?
-
-IntentDelta directly evaluates the first two under a controlled sequence of changing requirements. The third remains an important complementary research question.
-
-## Source
-
-[IntentDelta, arXiv:2610.33806](https://arxiv.org/abs/2610.33806). These are independent reading notes; the discussion labeled as my reading is interpretation rather than a reported experimental result.
-
-
-## My Research Reflections & Open Questions
+The benchmark's useful contribution is to make **current intention explicit and evaluable at every turn**, with a corresponding human execution. This helps separate misunderstanding from execution failure. For my own evaluation framework, I distinguish **intent tracking** (understanding the user's current requirements), **task execution** (acting successfully on that understanding), and **interactive collaboration** (helping the user clarify and achieve a satisfactory goal). IntentDelta directly evaluates the first two under a controlled sequence of changing requirements. The third motivates the following questions.
 
 *The following reflections are my own hypotheses and proposed evaluation directions, inspired by reading IntentDelta. They are not findings reported or validated by the paper's authors.*
 
@@ -235,3 +214,7 @@ Following each updated request is only one part of helping a user achieve a goal
 I would compare proactive behavior with a reactive baseline on matched tasks and user profiles, measuring final user-valued outcome quality alongside time to a satisfactory solution, avoidable failed actions, correction burden, and user effort. Early conflict detection should be checked for correctness, and alternatives should be judged for feasibility, relevance, and acceptance by the user. A useful summary would be the gain in outcome quality and effort saved after accounting for additional questions, delay, and cognitive load, with those components also reported separately.
 
 The open question is when an intervention produces enough benefit to justify its interaction cost. This would help distinguish an agent that merely tracks evolving intentions from one that helps the user make informed decisions and reach a satisfactory goal sooner.
+
+## Source
+
+[IntentDelta, arXiv:2610.33806](https://arxiv.org/abs/2610.33806). These are independent reading notes; Section 9 presents my own interpretation, hypotheses, and proposed evaluation directions rather than reported experimental results.
