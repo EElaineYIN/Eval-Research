@@ -1,5 +1,5 @@
 ---
-title: "Paper Deep Dive: IntentDelta and Evolving User Intentions"
+title: "📖【Paper Deep Dive】IntentDelta and Evolving User Intentions"
 date: 2026-10-31
 summary: "A close reading of IntentDelta: human-authored intention updates, priority-aware evaluation, and the gap between recovering requirements and executing them."
 tags: [agent evaluation, user intent, multi-turn interaction, paper notes]
