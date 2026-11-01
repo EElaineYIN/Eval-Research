@@ -54,6 +54,13 @@ Each turn contains:
 
 For example, a user might raise a travel budget to $1,800 while changing nonstop flights from a requirement to a preference. The structured annotation must capture both the new budget and the revised priority of the flight constraint.
 
+
+
+<figure style="margin: 1.5rem 0;">
+<a href="/Eval-Research/files/intentdelta-constraint-example.png" target="_blank" rel="noopener"><img src="/Eval-Research/files/intentdelta-constraint-example.png" alt="Example intention with budget, flight, and hotel-location constraints and their priorities." style="display: block; width: 100%; height: auto;"></a>
+<figcaption>Illustrative initial travel intention: a budget of at most $1,500 and nonstop flights are must-haves; a downtown hotel is preferred. The later update can change both values and priorities. Click the image to view it at full size.</figcaption>
+</figure>
+
 ### Quality control
 
 An author who did not construct a trajectory cross-verifies its utterances, cumulative intentions, priorities, and reference actions. Ambiguous or unreasonable cases are discussed and revised until consensus is reached.
@@ -96,6 +103,13 @@ During construction, intention updates are grounded in human exploration of the 
 Subsequent user utterances do not depend on the tested agent's actual actions. This provides a controlled comparison under identical changing requirements.
 
 **Interpretation:** This protocol evaluates an agent's ability to follow a predefined intention trajectory. It provides less direct evidence about how an agent's own questions, recommendations, or failures influence a user's subsequent decisions.
+
+
+
+<figure style="margin: 1.5rem 0;">
+<a href="/Eval-Research/files/intentdelta-evaluation-pipeline.png" target="_blank" rel="noopener"><img src="/Eval-Research/files/intentdelta-evaluation-pipeline.png" alt="IntentDelta evaluation pipeline from human annotation through agent execution, LLM judging, deterministic scoring, and human validation." style="display: block; width: 100%; height: auto;"></a>
+<figcaption>Evaluation overview. Human references guide LLM judgments and deterministic scoring. The 95% human–LLM agreement shown here concerns judgment validation on 100 sampled agent outputs, separate from the 97% annotation agreement discussed above. Click the image to view it at full size.</figcaption>
+</figure>
 
 ## 6. Metrics: understanding and execution
 
@@ -141,6 +155,13 @@ The reported results point to substantial difficulty in maintaining evolving req
 Correct intention recovery also does not guarantee successful execution. Understanding the current requirements and finding an action that satisfies them are distinct capabilities.
 
 Taken together, the benchmark exposes challenges in updating intentions without losing relevant history, understanding trade-offs, and executing the resulting constraints.
+
+
+
+<figure style="margin: 1.5rem 0;">
+<a href="/Eval-Research/files/intentdelta-main-results.png" target="_blank" rel="noopener"><img src="/Eval-Research/files/intentdelta-main-results.png" alt="Main results for eleven agents on TravelPlanner and WebShop, including Detection, Intention Recovery, Hard Success, and Action Score." style="display: block; width: 100%; height: auto;"></a>
+<figcaption>Main results from the paper (Table 3). Det. means Detection and Rec. means Intention Recovery. All values use a 0–100 scale; higher is better. Click the image to view it at full size.</figcaption>
+</figure>
 
 ## 8. Limitations
 
